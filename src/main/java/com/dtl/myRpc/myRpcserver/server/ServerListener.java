@@ -50,7 +50,7 @@ public class ServerListener {
                     ch.pipeline().addLast(new TimeServerHandler());
                 }
             });
-            LOGGER.info("netty is listening on ", port);
+            LOGGER.info("netty is listening on {}", this.port);
             ChannelFuture f = this.serverBootstrap.bind(port).sync();
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
